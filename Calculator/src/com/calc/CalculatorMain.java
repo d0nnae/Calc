@@ -1,10 +1,11 @@
-package com.calc;
+package com.Calc;
 import java.util.Scanner;
 import java.util.InputMismatchException; 
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
-//test
+
+//TODO integrate keyboard input
 
 
 public class CalculatorMain {
@@ -111,6 +112,7 @@ public class CalculatorMain {
     	return (Character.toString(bracketRight));
     }
     
+    //TODO: Print result in bigger and lower line
     public static String operatorResult() {
     	String solution = "";
         ScriptEngineManager mgr = new ScriptEngineManager();
@@ -119,9 +121,14 @@ public class CalculatorMain {
         System.out.println(userEquation + " = " + engine.eval(userEquation.toString()));
         solution = engine.eval(userEquation.toString()).toString();
     	} catch (ScriptException e) {
-            System.out.println("Fehler in der Gleichung!");
+    		//System.out.println("Fehler in der Gleichung!");
             e.printStackTrace();
+            solution = "Error";
     	}
     	return solution;
+    }
+    
+    public static void reset() {
+    	userEquation.setLength(0);
     }
 }
